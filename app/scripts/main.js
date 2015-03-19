@@ -7,7 +7,7 @@
         appbarElement = querySelector('.app-bar'),
         main = querySelector('main'),
         hamburger = querySelector('.hamburglar'),
-        hamburgerIsClosed = false;
+        hamburgerIsClosed = true;
 
     function closeMenu() {
         body.classList.remove('open');
