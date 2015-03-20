@@ -38,6 +38,7 @@
     navdrawerContainer.addEventListener('click', function(event) {
         if (event.target.nodeName === 'A' || event.target.nodeName === 'LI') {
             closeMenu();
+            burgerTime();
         }
     });
     hamburger.addEventListener('click', burgerTime);
