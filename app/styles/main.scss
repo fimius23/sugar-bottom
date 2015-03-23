@@ -1,17 +1,4 @@
-/*
- * Web Starter Kit
- *
- * Multi-screen layout styles for your page. Brought to you by the
- * Web Starter Kit team.
- *
- */
-
 @import '_h5bp';
-/*
- * Visual Style Guide styles
- * Remove if you prefer to use a CSS library, like Bootstrap
- */
-
 @import 'components/components';
 @import 'fonts';
 @import 'hamburger';
@@ -35,7 +22,7 @@ body.open {
 }
 
 .couch {
-    background-image: url('/images/Couch.jpg');
+    background-image: url('/images/skys.jpg');
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,10 +53,6 @@ body.open {
 section {
     padding-top: 10px;
     padding-bottom: 77px;
-}
-
-.droid-serif {
-    font-family: 'Droid Serif Regular', $fontHighlight;
 }
 
 .app-bar {
@@ -166,13 +149,10 @@ section {
 
 .promote-layer {
     /*
-  This may promote the layer to a composited
-  layer.
-
-  Replace with will-change when available
-
-  #perfmatters
-  */
+     * This may promote the layer to a composited layer.
+     * Replace with will-change when available
+     * #perfmatters
+     */
     
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -185,13 +165,14 @@ ol {
     font-size: 19px;
 }
 
+/*#04505E,#154b5c,#144e5b */
 .navdrawer-container {
     z-index: 1;
     position: fixed;
     right: 0;
     width: 250px;
     height: 100%;
-    background-color: $colorCyan400;
+    background-color: #154b5c;
     color: #fefefe;
     -webkit-transform: translate(250px, 0);
     transform: translate(250px, 0);
