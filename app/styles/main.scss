@@ -13,6 +13,8 @@
  */
 
 @import 'components/components';
+@import 'fonts';
+@import 'hamburger';
 html,
 body {
     width: 100%;
@@ -23,8 +25,6 @@ body {
 
 body {
     position: relative;
-    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
-    font-weight: 300;
     background-color: #fff;
     box-sizing: border-box;
     min-height: 100%;
@@ -32,6 +32,44 @@ body {
 
 body.open {
     overflow: hidden;
+}
+
+.couch {
+    background-image: url('/images/Couch.jpg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    max-width: 100%;
+    color: #fff;
+}
+
+.title {
+    text-align: center;
+}
+
+.lindsay-kramer {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bio {
+    background-color: $colorGray;
+    color: #fff;
+}
+
+.bio .page-header h3 {
+    color: #fff;
+}
+
+section {
+    padding-top: 10px;
+    padding-bottom: 77px;
+}
+
+.droid-serif {
+    font-family: 'Droid Serif Regular', $fontHighlight;
 }
 
 .app-bar {
@@ -153,7 +191,7 @@ ol {
     right: 0;
     width: 250px;
     height: 100%;
-    background-color: #747474;
+    background-color: $colorCyan400;
     color: #fefefe;
     -webkit-transform: translate(250px, 0);
     transform: translate(250px, 0);
@@ -182,7 +220,7 @@ main {
 
 .navdrawer-container h4 {
     background-color: white;
-    color: #747474;
+    color: $colorCyan400;
 }
 
 .app-bar-container ul,
@@ -239,76 +277,13 @@ main {
     min-height: 100%;
 }
 
-/* Hamburger */
-$color: #fff;
-$animation: 0.6s;
-$scale: .75;
-
-.hamburglar {
-  transform: scale($scale);
-  margin: 40px auto;
-  position: relative;
-  display: block;
-  width: 68px;
-  height: 68px;
-  top: -44px;
-  -webkit-touch-callout: none;
-  user-select: none;
+.page-header h3 {
+    font-family: 'Droid Serif Regular', $fontHighlight;
 }
-#top, #bottom {
-  position: absolute;
-  display: block;
-  height: 4px;
-  width: 36px;
-  border-radius: 2px;
-  background: $color;
-}
-#top {
-  top: 19px;
-  left: 14px;
-}
-#bottom {
-  top: 41px;
-  left: 14px;
-}
-
-path, line {
-  stroke: $color;
-  stroke-linecap: round;
-}
-
-#top, #bottom {
-  transform-origin: 34px 2px;
-  transform: rotate( 0deg ); // to prevent pixelatedness
-  transition: all $animation * (2/3) cubic-bezier(.8, -1.1, .5, 1.9); // x to = animation
-}
-#circle {
-  stroke-dasharray: 1 100 32 300; // 32 is the hamburger size
-  stroke-dashoffset: 101; // setting up a gap to swipe in from the left
-  transition: all $animation ease; // - to () animation
-}
-
-.hamburglar.is-closed {
-  #circle {
-    stroke-dasharray: 1 100 190 300;
-    stroke-dashoffset: 1;
-  }
-
-  #top {
-    transform: translateX( -4.5px ) rotate( -45deg );
-  }
-  #bottom {
-    transform: translateX( -4.5px ) rotate( 45deg );
-  }
-}
-/* Hamburger */
 
 @media all {
     .app-bar-container ul {
         display: none;
-    }
-    .hamburglar {
-      display: block;
     }
 }
 /** Larger Screens - desktops and tablets **/
@@ -374,8 +349,8 @@ path, line {
     .app-bar-container ul li {
         border: none;
     }
-    .hamburglar {
-      display: none;
+    .general-width {
+        max-width: 864px;
     }
     main {
         max-width: 864px;
@@ -385,52 +360,7 @@ path, line {
     body {
         overflow-y: scroll;
     }
-}
-
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-style: normal;
-    font-weight: 300;
-    src: url(/fonts/RobotoCondensed-Light.eot);
-    src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(/fonts/RobotoCondensed-Light.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Light.woff) format('woff');
-}
-
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-style: normal;
-    font-weight: 400;
-    src: url(/fonts/RobotoCondensed-Regular.eot);
-    src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), url(/fonts/RobotoCondensed-Regular.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Regular.woff) format('woff');
-}
-
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-style: normal;
-    font-weight: 700;
-    src: url(/fonts/RobotoCondensed-Bold.eot);
-    src: local('Roboto Condensed Regular'), local('RobotoCondensed-Bold'), url(/fonts/RobotoCondensed-Bold.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Bold.woff) format('woff');
-}
-
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-style: italic;
-    font-weight: 300;
-    src: url(/fonts/RobotoCondensed-LightItalic.eot);
-    src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), url(/fonts/RobotoCondensed-LightItalic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-LightItalic.woff) format('woff');
-}
-
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-style: italic;
-    font-weight: 400;
-    src: url(/fonts/RobotoCondensed-Italic.eot);
-    src: local('Roboto Condensed Italic'), local('RobotoCondensed-Italic'), url(/fonts/RobotoCondensed-Italic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-Italic.woff) format('woff');
-}
-
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-style: italic;
-    font-weight: 700;
-    src: url(/fonts/RobotoCondensed-BoldItalic.eot);
-    src: local('Roboto Condensed Bold Italic'), local('RobotoCondensed-BoldItalic'), url(/fonts/RobotoCondensed-BoldItalic.eot) format('embedded-opentype'), url(/fonts/RobotoCondensed-BoldItalic.woff) format('woff');
+    section {
+        padding-top: 0;
+    }
 }
