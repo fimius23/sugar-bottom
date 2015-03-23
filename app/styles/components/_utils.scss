@@ -9,6 +9,7 @@
   // Defining breakpoints
   $medium: 620px !default;
   $wide: 800px !default;
+  $large: 990px !default;
   $huge: 1600px !default;
   $mediumContainer: 688px !default;
   $wideContainer: 864px !default;
@@ -105,6 +106,10 @@
       @media only screen and (min-width: $wide) { @content; }
     }
 
+    @if $media-query == large {
+      @media only screen and (min-width: $large) { @content; }
+    }
+
     @if $media-query == huge {
       @media only screen and (min-width: $huge) { @content; }
     }
@@ -115,6 +120,7 @@
   @mixin medium { @include media-query(medium) { @content }; }
   @mixin medium-only { @include media-query(medium-only) { @content }; }
   @mixin wide { @include media-query(wide) { @content }; }
+  @mixin large { @include media-query(large) { @content }; }
   @mixin huge { @include media-query(huge) { @content }; }
 
   // Mixin to constrain elements
