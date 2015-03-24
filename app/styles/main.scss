@@ -11,6 +11,7 @@
     max-width: 100%;
     color: #fff;
 }
+
 html,
 body {
     width: 100%;
@@ -37,7 +38,7 @@ body.open {
 .title {
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-75%);
 }
 
 .gray-page {
@@ -54,6 +55,152 @@ section {
     padding-bottom: 77px;
 }
 
+.promote-layer {
+    /*
+     * This may promote the layer to a composited layer.
+     * Replace with will-change when available
+     * #perfmatters
+     */
+    
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.base,
+p,
+ul,
+ol {
+    font-size: 19px;
+}
+/*#04505E,#154b5c,#144e5b */
+
+.navdrawer-container {
+    z-index: 1;
+    position: fixed;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #154b5c;
+    color: #fefefe;
+    -webkit-transform: translate(250px, 0);
+    transform: translate(250px, 0);
+    overflow-y: auto;
+}
+
+.navdrawer-container.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.navdrawer-container.opened,
+main {
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+}
+
+.navdrawer-container h4,
+.navdrawer-container ul li a {
+    height: 60px;
+    padding: 17px 20px;
+    line-height: 1.4;
+}
+
+.navdrawer-container h4 {
+    background-color: white;
+    color: $colorCyan400;
+}
+
+.navdrawer-container ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.navdrawer-container ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+    white-space: nowrap;
+}
+
+.navdrawer-container ul li {
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: white;
+    padding: 0;
+}
+
+.navdrawer-container ul li::before {
+    content: none;
+}
+
+.navdrawer-container ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navdrawer-container ul li a:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: 0;
+}
+
+.navdrawer-container ul li a:active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+main {
+    margin: 0 auto;
+    /* Height of the header */
+    
+    padding: 60px 16px 16px 16px;
+    min-height: 100%;
+}
+
+/* TODO xlarge and xxlarge */
+.huge {
+    font-family: $fontHighlight;
+    padding-bottom: 0;
+    @include wide {
+        font-family: $fontHighlight;
+        font-size: 68px;
+        font-weight: 300;
+        line-height: 1.1471em;
+        padding-top: 0.3824em;
+    }
+    @include large {
+        font-size: 110px;
+        font-weight: 300;
+        line-height: 1.19em;
+        padding-top: 0.2364em;
+    }
+}
+
+/** Larger Screens - desktops and tablets **/
+
+@media all and (min-width: $large) {
+    button.menu {
+        display: none;
+    }
+    .navdrawer-container {
+        display: none;
+    }
+    .navdrawer-container h4 {
+        display: none;
+    }
+    main {
+        max-width: $wideContainer;
+        padding-top: 0;
+        min-height: initial;
+    }
+    body {
+        overflow-y: scroll;
+    }
+    section {
+        padding-top: 0;
+    }
+}
+
 .app-bar {
     display: block;
     width: 100%;
@@ -63,6 +210,11 @@ section {
     background-color: #212121;
     overflow: hidden;
     z-index: 1;
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    @include large {
+        position: relative;
+    }
 }
 
 .app-bar-container {
@@ -76,12 +228,24 @@ section {
     -ms-flex-direction: row;
     flex-direction: row;
     margin: 0 auto;
+    @include large {
+        display: block;
+        height: 80px;
+        max-width: $wideContainer;
+        padding: 0 16px;
+        box-sizing: border-box;
+        background-color: #212121;
+    }
 }
 
 .app-bar.open,
 .app-bar.open ~ main {
     -webkit-transform: translate(-250px, 0);
     transform: translate(-250px, 0);
+    @include large {
+        -webkit-transform: translate(0px, 0);
+        transform: translate(0px, 0);
+    }
 }
 
 .app-bar .logo {
@@ -97,6 +261,13 @@ section {
     max-width: none;
     font-weight: 300;
     display: initial;
+    @include large {
+        float: left;
+        margin: 0;
+        padding: 0;
+        line-height: 80px;
+        font-size: 46px;
+    }
 }
 
 .app-bar .logo a {
@@ -113,6 +284,9 @@ section {
     -ms-flex-direction: row;
     flex-direction: row;
     z-index: 2;
+    @include large {
+        float: right;
+    }
 }
 
 .app-bar button {
@@ -146,175 +320,19 @@ section {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-.promote-layer {
-    /*
-     * This may promote the layer to a composited layer.
-     * Replace with will-change when available
-     * #perfmatters
-     */
-    
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.base,
-p,
-ul,
-ol {
-    font-size: 19px;
-}
-
-/*#04505E,#154b5c,#144e5b */
-.navdrawer-container {
-    z-index: 1;
-    position: fixed;
-    right: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #154b5c;
-    color: #fefefe;
-    -webkit-transform: translate(250px, 0);
-    transform: translate(250px, 0);
-    overflow-y: auto;
-}
-
-.navdrawer-container.open {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-}
-
-.app-bar,
-.navdrawer-container.opened,
-main {
-    -webkit-transition: -webkit-transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
-}
-
-.app-bar-container ul li a,
-.navdrawer-container h4,
-.navdrawer-container ul li a {
+.app-bar-container ul li a {
     height: 60px;
     padding: 17px 20px;
     line-height: 1.4;
 }
 
-.navdrawer-container h4 {
-    background-color: white;
-    color: $colorCyan400;
-}
-
-.app-bar-container ul,
-.navdrawer-container ul {
+.app-bar-container ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
-}
-
-.app-bar-container ul li a,
-.navdrawer-container ul li a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    -webkit-transition: background-color 0.2s ease-out;
-    transition: background-color 0.2s ease-out;
-    white-space: nowrap;
-}
-
-.app-bar-container ul li,
-.navdrawer-container ul li {
-    border-bottom-style: solid;
-    border-width: 1px;
-    border-color: white;
-    padding: 0;
-}
-
-.app-bar-container ul li::before,
-.navdrawer-container ul li::before {
-    content: none;
-}
-
-.app-bar-container ul li a:hover,
-.navdrawer-container ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.app-bar-container ul li a:focus,
-.navdrawer-container ul li a:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    outline: 0;
-}
-
-.app-bar-container ul li a:active,
-.navdrawer-container ul li a:active {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-main {
-    margin: 0 auto;
-    /* Height of the header */
-    
-    padding: 60px 16px 16px 16px;
-    min-height: 100%;
-}
-
-@media all {
-    .app-bar-container ul {
-        display: none;
-    }
-}
-/** Larger Screens - desktops and tablets **/
-
-@media all and (min-width: 990px) {
-    .app-bar {
-        position: relative;
-    }
-    .app-bar.open,
-    .app-bar.open ~ main {
-        -webkit-transform: translate(0px, 0);
-        transform: translate(0px, 0);
-    }
-    .app-bar-container {
-        display: block;
-        height: 80px;
-        max-width: $wideContainer;
-        padding: 0 16px;
-        box-sizing: border-box;
-        background-color: #212121;
-    }
-    .app-bar-container ul {
+    display: none;
+    @include large {
         float: right;
-    }
-    .app-bar-container ul li a {
-        height: 80px;
-        padding-top: 28px;
-    }
-    .app-bar .logo {
-        float: left;
-        margin: 0;
-        padding: 0;
-        line-height: 80px;
-        font-size: 46px;
-    }
-    .app-bar-actions {
-        float: right;
-    }
-    .app-bar::after {
-        content: ' ';
-        display: block;
-        height: 0;
-        overflow: hidden;
-        clear: both;
-    }
-    button.menu {
-        display: none;
-    }
-    .navdrawer-container {
-        display: none;
-    }
-    .navdrawer-container h4 {
-        display: none;
-    }
-    .app-bar-container ul {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
@@ -322,18 +340,54 @@ main {
         -ms-flex-direction: row;
         flex-direction: row;
     }
-    .app-bar-container ul li {
+}
+
+.app-bar-container ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+    white-space: nowrap;
+    @include large {
+        height: 80px;
+        padding-top: 28px;
+    }
+}
+
+.app-bar-container ul li {
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: white;
+    padding: 0;
+    @include large {
         border: none;
     }
-    main {
-        max-width: $wideContainer;
-        padding-top: 0;
-        min-height: initial;
-    }
-    body {
-        overflow-y: scroll;
-    }
-    section {
-        padding-top: 0;
+}
+
+.app-bar-container ul li::before {
+    content: none;
+}
+
+.app-bar-container ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.app-bar-container ul li a:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: 0;
+}
+
+.app-bar-container ul li a:active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+@include media-query(large) {
+    .app-bar::after {
+        content: ' ';
+        display: block;
+        height: 0;
+        overflow: hidden;
+        clear: both;
     }
 }
