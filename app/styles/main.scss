@@ -32,7 +32,7 @@ body.open {
 }
 
 .landing-background {
-    @include full--background--image('/images/skys.jpg');
+    @include full--background--image('/images/couch.jpg');
 }
 
 .title {
@@ -41,12 +41,13 @@ body.open {
     transform: translateY(-75%);
 }
 
-.gray-page {
+.dark-page {
     background-color: $colorGray;
+    background-size: cover;
     color: #fff;
 }
 
-.gray-page .page-header h3 {
+.dark-page .page-header h3 {
     color: #fff;
 }
 
@@ -64,6 +65,52 @@ section {
     
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+
+.left {
+    text-align: left;
+}
+
+.address h4{
+    padding-top: 0;
+}
+
+.address p {
+    margin: 0;
+    padding: 0;
+}
+
+#contact iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.form {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    line-height: 1.42857143;
+    border: 1px solid $colorGrayKeyline;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+form textarea {
+    height: 100px;
+}
+
+.footer {
+    padding: 10px 0;
+    margin-top: 40px;
+    font-size: 13px;
+    text-align: center;
+    & p {
+        margin: 10px;
+    }
 }
 
 .base,
@@ -156,8 +203,8 @@ main {
     padding: 60px 16px 16px 16px;
     min-height: 100%;
 }
-
 /* TODO xlarge and xxlarge */
+
 .huge {
     font-family: $fontHighlight;
     padding-bottom: 0;
@@ -175,7 +222,6 @@ main {
         padding-top: 0.2364em;
     }
 }
-
 /** Larger Screens - desktops and tablets **/
 
 @media all and (min-width: $large) {
