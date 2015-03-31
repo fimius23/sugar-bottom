@@ -31,6 +31,11 @@ body.open {
     overflow: hidden;
 }
 
+section {
+    padding-top: 10px;
+    padding-bottom: 77px;
+}
+
 .landing-background {
     @include full--background--image('/images/couch.jpg');
 }
@@ -49,11 +54,6 @@ body.open {
 
 .dark-page .page-header h3 {
     color: #fff;
-}
-
-section {
-    padding-top: 10px;
-    padding-bottom: 77px;
 }
 
 .promote-layer {
@@ -84,6 +84,20 @@ section {
     width: 100%;
     height: 500px;
     border: none;
+}
+
+.for-small {
+    display: block;
+    @include large {
+        display: none;
+    }
+}
+
+.for-greater-than-small {
+    display: none;
+    @include large {
+        display: block;
+    }
 }
 
 .form {
