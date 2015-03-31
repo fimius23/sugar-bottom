@@ -9,7 +9,7 @@
 	// Enter the email where you want to receive the notification when someone submit form
 	$recipient = "kramerlicsw@gmail.com";
 	
-	$subject = "See Soon! Contact Form";
+	$subject = "From Your Website... Read This Now!";
 	
 	$mailheader = "From: $email\\r\\n";
 	$mailheader .= "Reply-To: $email\\r\\n";
@@ -33,7 +33,7 @@
 ?>
 
     <script language="javascript" type="text/javascript">
-		alert('Message not sent. Please send me an e-mail to kramerlicsw@gmail.com');
+		alert('Message not sent. Please send an e-mail to kramerlicsw@gmail.com');
 		window.location = "../index.html";
     </script>
 	
