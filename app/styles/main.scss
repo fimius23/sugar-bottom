@@ -1,7 +1,7 @@
 @import '_h5bp';
 @import 'components/components';
-@import 'fonts';
-@import 'hamburger';
+@import '_fonts';
+@import '_hamburger';
 @mixin full--background--image($imageUrl) {
     background-image: url($imageUrl);
     background-position: 50%;
@@ -40,19 +40,19 @@ section {
     @include full--background--image('/images/couch.jpg');
     height: 100%;
 }
-
-.children-background {
+/*.children-background {
     @include full--background--image('/images/children.jpg');
     opacity: 0.9;
     & .page-header h3 {
         color: #fff;
     }
-}
+}*/
 
 .title {
     position: relative;
     top: 50%;
     transform: translateY(-75%);
+    text-align: center;
 }
 
 .dark-page {

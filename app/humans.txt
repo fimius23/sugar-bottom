@@ -3,11 +3,11 @@
 
 # TEAM
 
-  <name> -- <role> -- <twitter>
+  Ben Kramer -- Developer -- @TheBenKramer
 
 # THANKS
 
-  <name>
+  Google Team
 
 # TECHNOLOGY COLOPHON
 
